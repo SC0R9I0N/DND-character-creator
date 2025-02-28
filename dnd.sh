@@ -99,7 +99,6 @@ echo ""
 # function to display scores
 
 display_scores() {
-	echo "Current Ability Scores:"
 	for i in "${!abilities[@]}"; do
 		echo "${abilities[$i]}: ${scores[$i]}"
 	done
@@ -155,6 +154,7 @@ adjust_scores() {
 
 # main loop to adjust ability scores
 while true; do
+	echo "Current Ability Scores:"
 	display_scores
 	echo "Enter the ability you want to adjust (or 'exit' to finish):"
 	read ability
