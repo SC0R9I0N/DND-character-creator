@@ -24,6 +24,7 @@ echo "The list contains most of the 5e classes. Please type out the number of th
 "
 
 read class
+
 level=1
 abilities=("Strength" "Dexterity" "Constitution" "Intelligence" "Wisdom" "Charisma")
 scores=(8 8 8 8 8 8)
@@ -172,3 +173,28 @@ done
 echo ""
 echo "Final Ability Scores:"
 display_scores
+
+#**********************************HP Calculation*******************************
+calculate_hp() {
+	local hit_die=$1
+ 	local con=$2
+  	local level=$3
+
+   	con_mod=$(((con - 10) / 2))
+
+    	# calculate hp for level 1
+     	local hp=$((hit_die + con_mod))
+
+      	#hp for higher levels
+       	if [ $level -gt 1 ]; then
+		local additional_hp=$(((level - 1) * (hit_die / 2 + 1 + con_mod)))
+  		hp=$((hp + additional_ban))
+    	fi
+
+      	echo $hp
+}
+#*****************************************************************************
+
+hp=$(calculate_hp $hit ${scores[$2]} $level)
+
+echo "Your HP is $hp as a level $level $type"
