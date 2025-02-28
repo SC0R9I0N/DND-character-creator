@@ -107,45 +107,51 @@ display_scores() {
 	echo ""
 }
 
-# function for cost of increasing ability scores
-cost_of_scores() {
-	local score=$1
-	if [ $score -le 13 ]; then
-		echo 1
-	else
-		echo 2
-	fi
-}
-
 # function to adjust ability scores
 adjust_scores() {
-	local ability=$1
-	local change=$2
-	for i in "${!abilities[@]}"; do
-		if [ "${abilities[$i]}" == "$ability" ]; then
-			local current_score=${scores[$i]}
-			local new_score=$((current_score + change))
-			local current_cost
-			local new_cost
+        local ability=$1
+        local change=$2
+        for i in "${!abilities[@]}"; do
+                if [ "${abilities[$i]}" == "$ability" ]; then
+                        local current_score=${scores[$i]}
+                        local new_score=$current_score
+                        local total_points=$points
 
-			current_cost=$(cost_of_scores $current_score)
-			new_cost=$(cost_of_scores $new_score)
+                        if [ $change -gt 0 ]; then
+                                for ((step=0; step<change; step++)); do
+                                        if [ $new_score -lt 13 ]; then
+                                                total_points=$((total_points-1))
+                                        else
+                                                total_points=$((total_points-2))
+                                        fi
+                                        new_score=$((new_score + 1))
+                                        if [ $total_points -lt 0 ]; then
+                                                echo "Not enough points to increase $ability to $((new_score))."
+                                                return
+                                        fi
+                                done
+                        elif [ $change -lt 0 ]; then
+                                for ((step=change; step<0; step++)); do
+                                        if [ $new_score -le 13 ]; then
+                                                total_points=$((total_points + 1))
+                                        else
+                                                total_points=$((total_points + 2))
+                                        fi
+                                        new_score=$((new_score - 1))
+                                        if [ $new_score -lt 8 ]; then
+                                                echo "Invalid adjustment for $ability. Scores must be between 8 and >
+                                                return
+                                        fi
+                                done
+                        fi
 
-			if [ $new_score -ge 8 ] && [ $new_score -le 15 ]; then
-				local total_points=$((points - change * new_cost + change * current_cost))
-				if [ $total_points -ge 0 ]; then
-					scores[$i]=$new_score
-					points=$total_points
-					echo "$ability adjusted by $change points. New score: ${scores[$i]}, Remaining points: $points"
-				else
-					echo "Not enough points to increase $ability to $new_score."
-				fi
-			else
-				echo "Invalid adjustment for $ability. Scores must be between 8 and 15."
-			fi
-		fi
-	done
+                        scores[$i]=$new_score
+                        points=$total_points
+                        echo "$ability adjusted by $change points. New score: ${scores[$i]}, Remaining points: $poin>
+                fi
+        done
 }
+
 
 # main loop to adjust ability scores
 while true; do
