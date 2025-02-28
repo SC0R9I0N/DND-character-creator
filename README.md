@@ -6,4 +6,4 @@ Creates a text-based DnD game through Bash scripting. The story will be updated 
 
 
 Known Issues:
-- Sometimes when allocating points, the logic does not work properly, I plan to fix this tomorrow on 2/28/2025
+- None at the moment, but currently cuts off after finishing the point buying process.
