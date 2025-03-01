@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# comment lines denoted with repeated '*' are subsections. lines denoted with '-' are major sections
+
+#******************Intro statements**************
 read -p "Welcome to my DnD campaign. Sorry I couldn't make it to the session. In my stead, take this script to go through my campaign. Hit enter to continue."
 
 echo ""
@@ -24,10 +27,13 @@ echo "The list contains most of the 5e classes. Please type out the number of th
 "
 
 read class
+#****************End of Intro************************
 
+#-----------------Character Creation------------------------
 level=1
 abilities=("Strength" "Dexterity" "Constitution" "Intelligence" "Wisdom" "Charisma")
 scores=(8 8 8 8 8 8)
+modifiers=(0 0 0 0 0 0)
 points=27
 
 echo ""
@@ -97,8 +103,9 @@ echo "Now that you've chosen a class, it's time to use up your points for your a
 
 echo ""
 
-# function to display scores
+#*********************************Ability Scores & Modifiers*****************************
 
+# function to display scores
 display_scores() {
 	for i in "${!abilities[@]}"; do
 		echo "${abilities[$i]}: ${scores[$i]}"
@@ -174,13 +181,33 @@ echo ""
 echo "Final Ability Scores:"
 display_scores
 
+calculate_modifier() {
+	local score=$1
+ 	local modifier=$(( (score - 10) / 2 ))
+  	echo $modifier
+}
+
+update_modifiers() {
+	for i in "$!scores[@]}"; do
+ 		modifiers[$i]=$(calculate_modifier ${scores[$i]})
+   	done
+}
+
+#update and display ability modifier scores
+update_modifiers
+
+echo "Ability Modifiers:"
+for i in "${!abilities[@]}"; do
+	echo "${abilities[$i]}: ${modifiers[$i]}"
+ done
+
+#*******************End of Ability Scores and Modifiers*************************
+
 #**********************************HP Calculation*******************************
 calculate_hp() {
 	local hit_die=$1
- 	local con=$2
+ 	local con_mod=$2
   	local level=$3
-
-   	con_mod=$(((con - 10) / 2))
 
     	# calculate hp for level 1
      	local hp=$((hit_die + con_mod))
@@ -193,8 +220,14 @@ calculate_hp() {
 
       	echo $hp
 }
-#*****************************************************************************
+#****************************End of HP calculation***************************
 
-hp=$(calculate_hp $hit ${scores[$2]} $level)
+hp=$(calculate_hp $hit ${modifiers[$2]} $level)
+
+echo ""
 
 echo "Your HP is $hp as a level $level $type"
+
+sleep 3
+
+read -p "Now that you've set up your basic traits of your character, it's time for you to choose your proficiencies. Hit enter to continue"
