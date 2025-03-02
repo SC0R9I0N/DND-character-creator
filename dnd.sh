@@ -231,3 +231,57 @@ echo "Your HP is $hp as a level $level $type"
 sleep 3
 
 read -p "Now that you've set up your basic traits of your character, it's time for you to choose your proficiencies. Hit enter to continue"
+
+echo ""
+
+#***********************************Proficiency*******************************
+
+# calculate overall proficiency bonus
+calculate_proficiency_bonus() {
+        local level=$1
+        if [ $level -le 4 ]; then
+                echo 2
+        elif [ $level -le 8 ]; then
+                echo 3
+        elif [ $level -le 12 ]; then
+                echo 4
+        elif [ $level -le 16 ]; then
+                echo 5
+        else
+                echo 6
+        fi
+}
+
+# prompt player for proficiency choices
+select_proficiencies() {
+        local proficiency_bonus=$(calculate_proficiency_bonus $level)
+        local proficiencies=()
+        local selected_indices=()
+
+        echo "Select two abilities for proficiency (type the number and hit Enter)"
+        for i in "${!abilities[@]}"; do
+                echo "$i: ${abilities[$i]}"
+        done
+
+        for _ in {1..2}; do
+                read index
+                if [[ $index =~ ^[0-5]$ ]] && ! [[ " ${selected_indices[@]} " =~ " $index " ]]; then
+                        selected_indices+=($index)
+                        modifiers[$index]=$((modifiers[$index] + proficiency_bonus))
+                        proficiencies+=(${abilities[$index]})
+                        echo "Proficiency in ${abilities[$index]} added."
+                else
+                        echo "Invalid selection. Please select a valid ability number and avoid duplicates."
+                fi
+        done
+
+        echo "Selected Proficiencies: ${proficiencies[@]}"
+}
+
+select_proficiencies
+
+echo "Updated Ability Modifiers with Proficiency:"
+for i in "${!abilities[@]}"; do
+        echo "${abilities[$i]}: ${modifiers[$i]}"
+done
+#***********************************End of Proficiency**************************
