@@ -285,3 +285,39 @@ for i in "${!abilities[@]}"; do
         echo "${abilities[$i]}: ${modifiers[$i]}"
 done
 #***********************************End of Proficiency**************************
+
+#*******************************Level Up****************************************
+
+level_up() {
+        level=$((level + 1))
+        hp=$(calculate_hp $hit ${modifiers[2]} $level)
+        proficiency_bonus=$(calculate_proficiency_bonus $level)
+
+        for index in "${selected_indicies[@]}"; do
+                modifiers[$index]=$(( (scores[$index] - 10) / 2 + proficiency_bonus ))
+        done
+
+        echo "Congrats! You leveled up to $level."
+
+        echo ""
+
+        echo "Your new HP is $hp, and your new proficiency bonus is $proficiency_bonus"
+}
+
+#***************************End of Level Up*************************************
+
+sleep 1
+
+level_up
+
+sleep 1
+
+level_up
+
+sleep 1
+
+level_up
+
+sleep 1
+
+level_up
