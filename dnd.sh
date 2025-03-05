@@ -286,6 +286,60 @@ for i in "${!abilities[@]}"; do
 done
 #***********************************End of Proficiency**************************
 
+sleep 2
+
+echo ""
+
+echo "You're almost done with your character, but now it's time to select your weapons"
+
+#****************************Weapon Selection***********************************
+
+barbarian_weapons=("Greatsword" "Greataxe" "Battle Axe" "Longsword")
+
+case $class in
+        1) #Barbarian
+                echo "Since you're a Barbarian, you have a few choices of weapon."
+                echo "Please type the number of the weapon you'd like to choose:"
+                for i in "${!barbarian_weapons[@]}"; do
+                        echo "$i - ${barbarian_weapons[$i]}"
+                done
+                read weapon_choice
+
+                #validate choice
+                if [[ $weapon_choice =~ ^[0-3]$ ]]; then
+                        chosen_weapon=${barbarian_weapons[$weapon_choice]} # main hand weapon
+
+                        if [[ $weapon_choice == 2 || $weapon_choice == 3 ]]; then
+                                echo "You have chosen a small weapon."
+                                echo "Would you like to dual wield them or have a shield?"
+                                sleep 1
+                                echo "Type 'dual' if you'd like to dual wield, or 'shield' if you'd like a shield"
+                                read weapon_option
+
+                                if [[ $weapon_option == "dual" ]]; then
+                                        echo "You have chosen to dual weild with a $chosen_weapon."
+                                        offhand_weapon=chosen_weapon # offhand slot for either dual weild or shield
+                                elif [[ $weapon_option == "shield" ]]; then
+                                        echo "You have chosen to carry a $chosen_weapon and a shield."
+                                        offhand_weapon="shield"
+                                else
+                                        echo "Invalid choice, please enter 'dual' or shield'."
+                                        exit 1
+                                fi
+                        else
+                                echo "You have chosen a $chosen_weapon for your journey."
+                        fi
+                else
+                        echo "Invalid choice, please enter a number between 0 and 3."
+                        exit 1
+                fi
+                ;;
+        #rest of classes...
+esac
+
+
+#*************************End of Weapon Selection*******************************
+
 #*******************************Level Up****************************************
 
 level_up() {
