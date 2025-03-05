@@ -7,3 +7,6 @@ Creates a text-based DnD game through Bash scripting. The story will be updated 
 
 Known Issues:
 - None at the moment, but currently cuts off after finishing the point buying process once an HP and Modifiers have been calculated.
+
+Update (3/4/25)
+- No update today for the script. Been thinking of implementation techniques for the weapons since this project is way too small to warrant including every weapon, spell, and cantrip within 5e
