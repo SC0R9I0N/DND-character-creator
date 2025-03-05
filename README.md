@@ -6,7 +6,7 @@ Creates a text-based DnD game through Bash scripting. The story will be updated 
 - I apologize in advance for the current lack of comments in the script. More comments will be added as the implementation grows, I wanted to just get something down that worked before going ham on 3 million comments
 
 Known Issues:
-- None at the moment, but currently cuts off after finishing the point buying process once an HP and Modifiers have been calculated.
+- None at the moment, but currently cuts off after selecting Proficiencies, or weapon selection if you choose a Barbarian.
 
-Update (3/4/25)
-- No update today for the script. Been thinking of implementation techniques for the weapons since this project is way too small to warrant including every weapon, spell, and cantrip within 5e
+Update (3/5/25)
+- I started implementing a case-based weapon/spell/cantrip. For the moment, I've only implemented a weapon selection for the Barbarian class. Upcoming updates will first go through the basic melee/ranged characters, ending with Paladins. After which, I will then move on to spellcasters. IMPORTANT NOTE: Spellcasters will have only a select number of cantrips and spells at their disposal as it is completely unreasonable for me to include every single possible spell/cantrip/weapon/shield in 5e. More to come
