@@ -334,6 +334,41 @@ case $class in
                         exit 1
                 fi
                 ;;
+	5) #Fighter
+                echo "Since you're a Fighter, you have a few choices of weapon."
+                echo "Please type the number of the weapon you'd like to choose:"
+                for i in "${!fighter_weapons[@]}"; do
+                        echo "$i - ${fighter_weapons[$i]}"
+                done
+                read weapon_choice
+
+                if [[ $weapon_choice =~ ^[0-4]$ ]]; then
+                        chosen_weapon=${fighter_weapons[$weapon_choice]}
+
+                        if [[ $weapon_choice == 0 || $weapon_choice == 1 ]]; then
+                                echo "You have chosen a small weapon."
+                                echo "Would you like to dual wield them or have a shield?"
+                                sleep 1
+                                echo "Type 'dual' if you'd like to dual wield, or 'shield' if you'd like a shield."
+                                read weapon_option
+
+                                if [[ $weapon_option == "dual" ]]; then
+                                        echo "You have chosen to dual wield with a $chosen_weapon."
+                                        offhand_weapon=chosen_weapon
+                                elif [[ $weapon_option == "shield" ]]; then
+                                        echo "You have chosen to carry a $chosen_weapon and a shield."
+                                        offhand_weapon="Shield"
+                                else
+                                        echo "Invalid choice, please enter 'dual' or 'shield'."
+                                        exit 1
+                                fi
+                        else
+                                echo "You have chosen a $chosen_weapon for your journey."
+                        fi
+                else
+                        echo "Invalid choice, please enter a number between 0 and 4."
+                fi
+                ;;
         #rest of classes...
 esac
 
