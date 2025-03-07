@@ -317,11 +317,11 @@ case $class in
                                 read weapon_option
 
                                 if [[ $weapon_option == "dual" ]]; then
-                                        echo "You have chosen to dual weild with a $chosen_weapon."
+                                        echo "You have chosen to dual wield with a $chosen_weapon."
                                         offhand_weapon=chosen_weapon # offhand slot for either dual weild or shield
                                 elif [[ $weapon_option == "shield" ]]; then
                                         echo "You have chosen to carry a $chosen_weapon and a shield."
-                                        offhand_weapon="shield"
+                                        offhand_weapon="Shield"
                                 else
                                         echo "Invalid choice, please enter 'dual' or shield'."
                                         exit 1
