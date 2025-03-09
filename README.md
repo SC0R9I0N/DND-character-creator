@@ -8,8 +8,8 @@ Creates a text-based DnD game through Bash scripting. The story will be updated 
 Known Issues:
 - Due to lack of error checking, the ability score section allows the user to basically add ability points to whatever they want, even if it isn't on the list of abilities they can change.
 
-Update (3/7/25)
-- I started implementing a case-based weapon/spell/cantrip. For the moment, I've only implemented a weapon selection for the Barbarian class and Fighter. Upcoming updates will first go through the basic melee/ranged characters, ending with Paladins. After which, I will then move on to spellcasters. IMPORTANT NOTE: Spellcasters will have only a select number of cantrips and spells at their disposal as it is completely unreasonable for me to include every single possible spell/cantrip/weapon/shield in 5e. More to come
+Update (3/8/25)
+- No changes today on the main branch, looking through the 5e spells/cantrips to decide what I'm going to provide. Considering allowing the user to just signify a type of build they'd want, allowing for preset spells and cantrips rather than picking and choosing, but not sure yet.
 
 Upcoming
 - After finishing weapon choice section, I will be adding a function to allow the user to type 'character sheet' at any time during the game and see a visual of their character sheet with important details. I will then finish off the character creation and finally add more comments to the script + add enhanced error checking across the board for better case handling.
