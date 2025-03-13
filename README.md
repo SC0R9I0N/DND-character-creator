@@ -9,7 +9,7 @@ Known Issues:
 - Due to lack of error checking, the ability score section allows the user to basically add ability points to whatever they want, even if it isn't on the list of abilities they can change.
 
 Update (3/13/25)
-- still deciding how to implement some of the spells/cantrips, so no updates for the past couple days
+- still deciding how to implement some of the spells/cantrips, so no updates for the past couple days. I've also been taking some time to learn Rust, so my time is split between a few things
 
 Upcoming
 - After finishing weapon choice section, I will be adding a function to allow the user to type 'character sheet' at any time during the game and see a visual of their character sheet with important details. I will then finish off the character creation and finally add more comments to the script + add enhanced error checking across the board for better case handling.
