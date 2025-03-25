@@ -13,3 +13,9 @@ Update (3/13/25)
 
 Upcoming
 - After finishing weapon choice section, I will be adding a function to allow the user to type 'character sheet' at any time during the game and see a visual of their character sheet with important details. I will then finish off the character creation and finally add more comments to the script + add enhanced error checking across the board for better case handling.
+
+  Idea Board
+  - implement a way to respec your character any time you're taking a long or short rest
+  - implement long and short rests
+  - implement a save feature so that players can save their progress in the game so that it doesn't restart every time
+  - create a function that the user can call that returns a character sheet so that they can see their sheet
