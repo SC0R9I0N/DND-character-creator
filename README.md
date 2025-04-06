@@ -8,8 +8,8 @@ Creates a text-based DnD game through Bash scripting. The story will be updated 
 Known Issues:
 - Due to lack of error checking, the ability score section allows the user to basically add ability points to whatever they want, even if it isn't on the list of abilities they can change.
 
-Update (3/13/25)
-- still deciding how to implement some of the spells/cantrips, so no updates for the past couple days. I've also been taking some time to learn Rust, so my time is split between a few things
+Update (4/6/25)
+- Changes have been delayed because of not having access to the code for a little bit and working on some certificates. Updates should be regularly pushed within the next couple weeks.
 
 Upcoming
 - After finishing weapon choice section, I will be adding a function to allow the user to type 'character sheet' at any time during the game and see a visual of their character sheet with important details. I will then finish off the character creation and finally add more comments to the script + add enhanced error checking across the board for better case handling.
