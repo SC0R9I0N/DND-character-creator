@@ -1,5 +1,9 @@
 # DND
-Creates a text-based DnD game through Bash scripting. The story will be updated over time to add more story.
+After thorough consideration, I have decided to change this project slightly. Instead of making a single-player DND campaign, it will instead function solely as a character creator through Bash scripting. This change is due to the fact that the code would be repetitive after a while for the game, so I instead would rather make a more thoroughly developed character creator that you can use when creating a character for a campaign. This will allow the character creator to be more robust and follow the 5e guidelines more closely. I plan to overhaul the current code to adjust it for the new version. Additionally, the original idea for the program will remain in this README with strikethrough to indicate it has been scrapped. This allows for anyone viewing this project to see the original idea and where it landed at the end.
+
+Currently, the same issues are still present, but they will be remedied soon as I will be working more on this project in the coming weeks. I aim to get this project fully completed by the end of my college semester next month.
+
+~~Creates a text-based DnD game through Bash scripting. The story will be updated over time to add more story.
 
 - Will include a slightly simplified class system as opposed to the 5e rules at the start of implementation, but will later be updated to match the 5e classes better
 - Levels will go 1-5 at the first iteration due to limited story. Later will be updated to 1-10, then 1-20. "DLC" versions will also be pushed for those that want to continue their journey along the way of updates. 
@@ -18,4 +22,5 @@ Upcoming
   - implement a way to respec your character any time you're taking a long or short rest
   - implement long and short rests
   - implement a save feature so that players can save their progress in the game so that it doesn't restart every time
-  - create a function that the user can call that returns a character sheet so that they can see their sheet
+  - create a function that the user can call that returns a character sheet so that they can see their sheet~~
+
