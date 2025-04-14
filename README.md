@@ -1,4 +1,4 @@
-# DND
+# DND-character-creator
 After thorough consideration, I have decided to change this project slightly. Instead of making a single-player DND campaign, it will instead function solely as a character creator through Bash scripting. This change is due to the fact that the code would be repetitive after a while for the game, so I instead would rather make a more thoroughly developed character creator that you can use when creating a character for a campaign. This will allow the character creator to be more robust and follow the 5e guidelines more closely. I plan to overhaul the current code to adjust it for the new version. Additionally, the original idea for the program will remain in this README with strikethrough to indicate it has been scrapped. This allows for anyone viewing this project to see the original idea and where it landed at the end.
 
 Currently, the same issues are still present, but they will be remedied soon as I will be working more on this project in the coming weeks. I aim to get this project fully completed by the end of my college semester next month.
