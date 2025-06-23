@@ -1,26 +1,10 @@
-# DND-character-creator
-After thorough consideration, I have decided to change this project slightly. Instead of making a single-player DND campaign, it will instead function solely as a character creator through Bash scripting. This change is due to the fact that the code would be repetitive after a while for the game, so I instead would rather make a more thoroughly developed character creator that you can use when creating a character for a campaign. This will allow the character creator to be more robust and follow the 5e guidelines more closely. I plan to overhaul the current code to adjust it for the new version. Additionally, the original idea for the program will remain in this README with strikethrough to indicate it has been scrapped. This allows for anyone viewing this project to see the original idea and where it landed at the end.
+6/23/2025 - Complete documentation revamp
 
-Currently, the same issues are still present, but they will be remedied soon as I will be working more on this project in the coming weeks. I aim to get this project fully completed by the end of my college semester next month.
+This project is an ongoing side project I have to make a Dungeons & Dragons character creator script. This is a Bash script that I plan to support printing out character sheets based on a specific level of your character. This will allow you to bypass having to print out a character sheet and write things into it. While I know this isn't a new thing, but I wanted to make this as a personal project for my own D&D campaigns as I like the idea of using my own software for my campaigns. It will walk you through the entire character creation process, including backstory, alighnment, and other things found when creating a character in D&D Beyond. 
 
-~~Creates a text-based DnD game through Bash scripting. The story will be updated over time to add more story.
+Currently the script has a few bugs and is gagued towards the previous functionality of the program. Previously it was intended to be a full-fledged D&D campaign, but after extensive consideration, this felt like too large a project starting off. Therefore I made the decision to start with something small and make it just a simple character creator/manager so that players in a campaign can make notes on their own much easier and not have to always be scribbling and erasing on a printed out character sheet (since D&D Beyond has now become a subscription-based product for maps, I am also doing this in anticipation of there possibly being issues with character creation and management in the future.
 
-- Will include a slightly simplified class system as opposed to the 5e rules at the start of implementation, but will later be updated to match the 5e classes better
-- Levels will go 1-5 at the first iteration due to limited story. Later will be updated to 1-10, then 1-20. "DLC" versions will also be pushed for those that want to continue their journey along the way of updates. 
-- I apologize in advance for the current lack of comments in the script. More comments will be added as the implementation grows, I wanted to just get something down that worked before going ham on 3 million comments
-
-Known Issues:
-- Due to lack of error checking, the ability score section allows the user to basically add ability points to whatever they want, even if it isn't on the list of abilities they can change.
-
-Update (4/6/25)
-- Changes have been delayed because of not having access to the code for a little bit and working on some certificates. Updates should be regularly pushed within the next couple weeks.
-
-Upcoming
-- After finishing weapon choice section, I will be adding a function to allow the user to type 'character sheet' at any time during the game and see a visual of their character sheet with important details. I will then finish off the character creation and finally add more comments to the script + add enhanced error checking across the board for better case handling.
-
-  Idea Board
-  - implement a way to respec your character any time you're taking a long or short rest
-  - implement long and short rests
-  - implement a save feature so that players can save their progress in the game so that it doesn't restart every time
-  - create a function that the user can call that returns a character sheet so that they can see their sheet~~
-
+Planned Functions
+- Automatically calulate things such as HP, AC, dice rolls (to hit, saves, checks, etc.), proficiency bonuses, and anything else that needs calculations
+- Saves data so that characters can be updated and you don't have to create a new character every time you want to make a change
+- Add an option to print out only the new data (for example, if you add to lore or notes, you can choose to print out just those pages to save some paper)
